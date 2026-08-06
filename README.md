@@ -8,18 +8,16 @@ next steps) using an LLM via Groq.
 
 ```
 youtube-summarizer/
-├── app/
-│   ├── main.py         # FastAPI app + /summarize endpoint
-│   ├── config.py        # Settings (API key, model, temperature)
-│   ├── prompts.py        # Reusable prompt template
-│   ├── transcript.py     # Video ID extraction, title + transcript fetch
-│   ├── llm.py             # Groq client wrapper
-│   ├── service.py         # Orchestrates transcript -> prompt -> LLM
-│   └── schemas.py         # Request/response models
-├── ui/
-│   └── streamlit_app.py   # Streamlit front-end
+├── main.py            # FastAPI app + /summarize endpoint
+├── config.py          # Settings (API key, model, temperature)
+├── prompts.py         # Reusable prompt template
+├── transcript.py      # Video ID extraction, title + transcript fetch
+├── llm.py             # Groq client wrapper
+├── service.py         # Orchestrates transcript -> prompt -> LLM
+├── schemas.py         # Request/response models
+├── streamlit_app.py   # Streamlit front-end
 ├── requirements.txt
-└── .env.example
+└── .env
 ```
 
 ## Setup
@@ -29,20 +27,21 @@ youtube-summarizer/
    pip install -r requirements.txt
    ```
 
-2. Create a `.env` file (copy `.env.example`) and add your Groq API key:
-   ```bash
-   cp .env.example .env
+2. Create a `.env` file and add your Groq API key. Example contents:
+   ```env
+   GROQ_API_KEY=your_groq_api_key_here
+   GROQ_MODEL=llama-3.1-8b-instant
+   SUMMARY_TEMPERATURE=0.3
    ```
-
 3. Start the API:
    ```bash
-   uvicorn app.main:app --reload
+   uvicorn main:app --reload
    ```
    Swagger docs at http://localhost:8000/docs
 
 4. In a second terminal, start the UI:
    ```bash
-   streamlit run ui/streamlit_app.py
+   streamlit run streamlit_app.py
    ```
 
 ## API

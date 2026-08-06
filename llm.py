@@ -4,7 +4,7 @@ Kept isolated so the provider can be swapped without touching prompts or routes.
 """
 
 from groq import Groq
-from app.config import settings
+from config import settings
 
 _client: Groq | None = None
 

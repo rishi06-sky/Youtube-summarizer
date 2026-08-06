@@ -1,7 +1,7 @@
 """
 Streamlit UI for the YouTube Summarizer.
 Talks to the FastAPI backend over HTTP — run the API first:
-    uvicorn app.main:app --reload
+    uvicorn main:app --reload
 """
 
 import streamlit as st
@@ -44,7 +44,7 @@ if run:
             except requests.exceptions.ConnectionError:
                 st.error(
                     "Could not reach the API. Is it running? "
-                    "Start it with: uvicorn app.main:app --reload"
+                    "Start it with: uvicorn main:app --reload"
                 )
 
             except Exception as e:

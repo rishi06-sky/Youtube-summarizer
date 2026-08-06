@@ -4,9 +4,9 @@ call together. This is the single function both the API and any future
 caller (CLI, worker, etc.) should use.
 """
 
-from app.transcript import fetch_video_data
-from app.prompts import build_summary_prompt
-from app.llm import summarize as llm_summarize
+from transcript import fetch_video_data
+from prompts import build_summary_prompt
+from llm import summarize as llm_summarize
 
 
 def summarize_youtube_video(url: str) -> dict:
