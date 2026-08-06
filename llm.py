@@ -26,4 +26,7 @@ def summarize(prompt: str) -> str:
         temperature=settings.TEMPERATURE,
     )
 
-    return response.choices[0].message.content
+    content = response.choices[0].message.content
+    if content is None:
+        raise ValueError("LLM response missing content")
+    return content
