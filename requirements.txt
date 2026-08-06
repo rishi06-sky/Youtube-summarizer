@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+groq
+youtube-transcript-api
+yt-dlp
+streamlit
+requests
